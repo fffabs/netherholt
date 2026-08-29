@@ -31,7 +31,7 @@ export default function Home() {
           <a href="#about">About</a>
           <a href="#roles">Roles</a>
         </nav>
-        <p className="header-meta">London, UK</p>
+        <p className="header-meta">Independent / 2026</p>
       </header>
 
       <section className="hero" id="top" aria-labelledby="hero-title">
@@ -128,8 +128,8 @@ export default function Home() {
       <footer>
         <p className="footer-wordmark">Netherholt</p>
         <div className="footer-meta">
-          <p>© 2026 Netherholt Ltd.</p>
-          <p>Independent / London</p>
+          <p>© 2026 Netherholt.</p>
+          <p>Independent / Since 2026</p>
           <a href="#top">Back to top ↑</a>
         </div>
       </footer>
