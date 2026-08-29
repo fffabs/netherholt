@@ -12,10 +12,10 @@
 }
 
 :root {
-  --black: #000;
+  --black: #010101;
   --white: #fff;
-  --muted: #5f5959;
-  --line: rgba(255, 255, 255, 0.16);
+  --muted: rgba(1, 1, 1, 0.28);
+  --line: rgba(1, 1, 1, 0.14);
 }
 
 * {
@@ -24,13 +24,13 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--black);
+  background: var(--white);
 }
 
 body {
   margin: 0;
-  background: var(--black);
-  color: var(--white);
+  background: var(--white);
+  color: var(--black);
   font-family: 'Neue Haas Unica', Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -55,39 +55,65 @@ a {
 }
 
 a:hover {
-  color: var(--white);
+  color: var(--black);
 }
 
 a:focus-visible {
   border-radius: 1px;
-  outline: 1px solid var(--white);
+  outline: 1px solid var(--black);
   outline-offset: 4px;
 }
 
 .intro {
   position: relative;
-  display: grid;
   min-height: 100svh;
-  place-items: center;
-  padding: 72px 20px 110px;
+  padding: 20px 30px 110px;
 }
 
-.intro-mark {
-  text-align: center;
+.brand-pill {
+  display: inline-flex;
+  height: 34px;
+  align-items: center;
+  border: 1px solid var(--black);
+  border-radius: 50px;
+  padding: 0 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.intro-copy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(400px, calc(100% - 40px));
+  transform: translate(-50%, -48%);
   animation: appear 600ms ease both;
 }
 
-.intro-mark h1 {
-  font-size: 30px;
+.intro-copy h1 {
+  max-width: 390px;
+  font-size: clamp(38px, 3.4vw, 48px);
   font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.045em;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
 }
 
-.intro-mark p {
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 12px;
+.intro-copy > p {
+  max-width: 380px;
+  margin-top: 38px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.intro-link {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  margin-top: 40px;
+  border-radius: 50px;
+  padding: 0 20px;
+  background: rgba(1, 1, 1, 0.05);
+  font-size: 16px;
 }
 
 .page-content {
@@ -145,7 +171,7 @@ a:focus-visible {
 }
 
 .muted-copy a {
-  color: var(--white);
+  color: var(--black);
 }
 
 .content-close {
@@ -159,7 +185,7 @@ a:focus-visible {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.96);
+  background: rgba(255, 255, 255, 0.96);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
@@ -185,7 +211,7 @@ a:focus-visible {
 }
 
 .nav-secondary .current {
-  color: var(--white);
+  color: var(--black);
 }
 
 @keyframes appear {
@@ -203,8 +229,20 @@ a:focus-visible {
     min-height: calc(100svh - 80px);
   }
 
-  .intro-mark h1 {
-    font-size: 27px;
+  .intro {
+    padding: 16px 14px 100px;
+  }
+
+  .intro-copy {
+    transform: translate(-50%, -45%);
+  }
+
+  .intro-copy h1 {
+    font-size: 38px;
+  }
+
+  .intro-copy > p {
+    margin-top: 28px;
   }
 
   .page-content {

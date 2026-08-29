@@ -16,9 +16,15 @@ export default function Home() {
   return (
     <main id="top">
       <section className="intro" aria-labelledby="site-title">
-        <div className="intro-mark">
-          <h1 id="site-title">Netherholt</h1>
-          <p>Independent holding company</p>
+        <a className="brand-pill" href="#top" aria-label="Netherholt, back to top">
+          Netherholt
+        </a>
+        <div className="intro-copy">
+          <h1 id="site-title">A home for considered companies.</h1>
+          <p>
+            Netherholt holds Moumoujus, Copycat app, and whatever comes next.
+          </p>
+          <a className="intro-link" href="#ventures">View ventures ↓</a>
         </div>
       </section>
 
