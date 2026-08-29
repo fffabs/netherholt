@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og.png',
-        width: 1729,
-        height: 910,
+        width: 1730,
+        height: 909,
         alt: 'Netherholt — Independent holding company',
       },
     ],

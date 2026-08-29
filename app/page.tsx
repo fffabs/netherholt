@@ -1,138 +1,107 @@
 const ventures = [
-  {
-    number: '01',
-    name: 'Moumoujus',
-    type: 'Independent venture',
-    status: 'Active',
-  },
-  {
-    number: '02',
-    name: 'Copycat app',
-    type: 'Software',
-    status: 'Active',
-  },
-  {
-    number: '—',
-    name: 'The next thing',
-    type: 'Future venture',
-    status: 'Open',
-  },
+  ['Moumoujus', 'Independent venture'],
+  ['Copycat app', 'Software'],
+  ['Future ventures', 'In development'],
+];
+
+const experience = [
+  'Venture building',
+  'Product strategy',
+  'Brand and identity',
+  'Digital products',
+  'Go-to-market',
 ];
 
 export default function Home() {
   return (
-    <main>
-      <header className="site-header">
-        <a className="brand-mark" href="#top" aria-label="Netherholt, back to top">
-          N°
-        </a>
-        <nav aria-label="Main navigation">
-          <a href="#ventures">Ventures</a>
-          <a href="#about">About</a>
-          <a href="#roles">Roles</a>
-        </nav>
-        <p className="header-meta">Independent / 2026</p>
-      </header>
-
-      <section className="hero" id="top" aria-labelledby="hero-title">
-        <div className="hero-intro reveal">
+    <main id="top">
+      <section className="intro" aria-labelledby="site-title">
+        <div className="intro-mark">
+          <h1 id="site-title">Netherholt</h1>
           <p>Independent holding company</p>
-          <p>Building for the long term</p>
-        </div>
-        <h1 id="hero-title" className="wordmark reveal reveal-delay">
-          Netherholt<span>.</span>
-        </h1>
-        <div className="hero-statement reveal reveal-delay-2">
-          <p className="section-label">What we are</p>
-          <p>
-            A home for considered companies—Moumoujus, Copycat app, and
-            whatever comes next.
-          </p>
         </div>
       </section>
 
-      <section className="ventures section-pad" id="ventures" aria-labelledby="ventures-title">
-        <div className="section-head">
-          <p className="section-label">01 / Ventures</p>
-          <h2 id="ventures-title">Built here.</h2>
-        </div>
-        <div className="venture-list">
-          {ventures.map((venture) => (
-            <article className="venture-row" key={venture.name}>
-              <p className="venture-number">{venture.number}</p>
-              <h3>{venture.name}</h3>
-              <p className="venture-type">{venture.type}</p>
-              <p className="venture-status">
-                <span aria-hidden="true" />
-                {venture.status}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="manifesto section-pad" aria-label="Our approach">
-        <p className="section-label">Working principle</p>
-        <p className="manifesto-copy">
-          Start with something useful. Make it distinct. Stay close enough to
-          care. Keep going long enough for it to matter.
-        </p>
-      </section>
-
-      <section className="about section-pad" id="about" aria-labelledby="about-title">
-        <div className="section-head about-heading">
-          <p className="section-label">02 / About</p>
-          <h2 id="about-title">One founder,<br />multiple directions.</h2>
-        </div>
-        <div className="about-copy">
-          <p>
-            I’m an independent founder working across product, brand and
-            technology. Netherholt gives every new idea room to become a
-            focused company, while keeping the long-term thinking in one place.
-          </p>
-          <p>
-            My experience spans taking products from an early thought to a
-            real launch: shaping the proposition, building the identity,
-            designing the experience and finding the path to market.
-          </p>
-        </div>
-        <div className="experience" aria-label="Areas of experience">
-          <p className="section-label">Experience</p>
-          <ul>
-            <li>Venture building</li>
-            <li>Product strategy</li>
-            <li>Brand &amp; identity</li>
-            <li>Digital products</li>
-            <li>Go-to-market</li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="roles section-pad" id="roles" aria-labelledby="roles-title">
-        <p className="section-label">03 / Work with us</p>
-        <div className="roles-grid">
-          <h2 id="roles-title">Good people, before job titles.</h2>
-          <div className="roles-copy">
+      <div className="page-content">
+        <section className="content-section" id="about" aria-labelledby="about-title">
+          <h2 id="about-title">Netherholt</h2>
+          <div className="content-indent prose">
             <p>
-              There are no open roles today. But if you make thoughtful work
-              and think you should be part of something here, introduce
-              yourself.
+              is the holding company behind Moumoujus, Copycat app, and future
+              ventures.
             </p>
-            <a className="text-link" href="mailto:hello@netherholt.com">
-              hello@netherholt.com <span aria-hidden="true">↗</span>
-            </a>
+            <p>
+              It exists to give each idea room to become a focused company,
+              while keeping the long-term thinking in one place.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer>
-        <p className="footer-wordmark">Netherholt</p>
-        <div className="footer-meta">
-          <p>© 2026 Netherholt.</p>
-          <p>Independent / Since 2026</p>
-          <a href="#top">Back to top ↑</a>
+        <section className="content-section" id="ventures" aria-labelledby="ventures-title">
+          <h2 id="ventures-title">Ventures</h2>
+          <dl className="content-indent listing">
+            {ventures.map(([name, type]) => (
+              <div key={name}>
+                <dt>{name}</dt>
+                <dd>{type}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section className="content-section" id="founder" aria-labelledby="founder-title">
+          <h2 id="founder-title">Founder</h2>
+          <div className="content-indent prose">
+            <p>
+              I’m an independent founder working across product, brand and
+              technology—taking ideas from an early thought through to a real
+              launch.
+            </p>
+          </div>
+        </section>
+
+        <section className="content-section" id="experience" aria-labelledby="experience-title">
+          <h2 id="experience-title">Experience</h2>
+          <ul className="content-indent simple-list">
+            {experience.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="content-section" id="roles" aria-labelledby="roles-title">
+          <h2 id="roles-title">Open roles</h2>
+          <div className="content-indent prose muted-copy">
+            <p>
+              Nothing open today. If you make thoughtful work and believe you
+              should be part of something here, introductions are always
+              welcome.
+            </p>
+            <p>
+              <a href="mailto:hello@netherholt.com">hello (at) netherholt.com</a>
+            </p>
+          </div>
+        </section>
+
+        <p className="content-close">More to come.</p>
+      </div>
+
+      <nav className="site-nav" aria-label="Site navigation">
+        <div className="nav-row nav-primary">
+          <a href="#ventures">Ventures</a>
+          <a href="#founder">Founder</a>
+          <a href="#experience">Experience</a>
+          <a href="#roles">Open roles</a>
         </div>
-      </footer>
+        <div className="nav-row nav-secondary">
+          <div className="nav-ventures">
+            <a className="current" href="#top">Netherholt</a>
+            <a href="#ventures">Moumoujus</a>
+            <a href="#ventures">Copycat app</a>
+          </div>
+          <a href="mailto:hello@netherholt.com">Contact</a>
+        </div>
+      </nav>
     </main>
   );
 }
