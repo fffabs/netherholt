@@ -82,7 +82,7 @@ export default function Home() {
                       aria-label={`${name} (opens in a new tab)`}
                     >
                       <span className="venture-name">{name}</span>
-                      <span className="external-arrow" aria-hidden="true">↗</span>
+                      <span className="external-arrow" aria-hidden="true">{'↗︎'}</span>
                     </a>
                   ) : (
                     <span className={struck ? 'venture-name is-struck' : 'venture-name'}>
