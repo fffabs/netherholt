@@ -418,6 +418,11 @@ a:focus-visible {
 }
 
 @media (max-width: 640px) {
+  body {
+    font-size: 16px;
+    line-height: 1.22;
+  }
+
   .site-header {
     height: 40svh;
     padding: 56px 14px;
@@ -433,6 +438,15 @@ a:focus-visible {
     margin-top: 40svh;
     padding-right: 14px;
     padding-left: 14px;
+  }
+
+  .content-section h2,
+  .role-card {
+    font-size: 16px;
+  }
+
+  .status-chip {
+    font-size: 8px;
   }
 
   .nav-row {
