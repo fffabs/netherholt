@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: 'Netherholt — Independent Holding Company',
   description:
     'Netherholt is the independent holding company behind Moumoujus, Copycat for macOS, and future ventures.',
+  icons: {
+    icon: [{ url: '/netherholt-logo.svg', type: 'image/svg+xml' }],
+    shortcut: '/netherholt-logo.svg',
+  },
   openGraph: {
     title: 'Netherholt — Independent Holding Company',
     description:
