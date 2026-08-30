@@ -1,7 +1,16 @@
 const ventures = [
-  ['Moumoujus', 'Independent venture'],
-  ['Copycat app', 'Software'],
-  ['Future ventures', 'In development'],
+  {
+    name: 'Moumoujus',
+    type: 'Independent venture',
+    href: 'https://moumoujus.com',
+  },
+  {
+    name: 'Copycat for macOS',
+    type: 'Software',
+    status: 'Coming soon',
+    struck: true,
+  },
+  { name: 'Future ventures', type: 'In development' },
 ];
 
 const experience = [
@@ -15,30 +24,38 @@ const experience = [
 export default function Home() {
   return (
     <main id="top">
-      <section className="intro" aria-labelledby="site-title">
-        <a className="brand-pill" href="#top" aria-label="Netherholt, back to top">
-          Netherholt
-        </a>
-        <div className="intro-copy">
-          <h1 id="site-title">A home for considered companies.</h1>
-          <p>
-            Netherholt holds Moumoujus, Copycat app, and whatever comes next.
-          </p>
-          <a className="intro-link" href="#ventures">View ventures ↓</a>
+      <header className="site-header">
+        <div
+          className="site-logo"
+          role="img"
+          aria-label="Netherholt"
+        >
+          <span className="logo-aura" aria-hidden="true">
+            <span className="logo-aura-fill" />
+          </span>
+          <img
+            className="logo-mark"
+            src="/netherholt-logo.svg"
+            alt=""
+            width={136}
+            height={86}
+            aria-hidden="true"
+          />
         </div>
-      </section>
+      </header>
 
       <div className="page-content">
         <section className="content-section" id="about" aria-labelledby="about-title">
           <h2 id="about-title">Netherholt</h2>
           <div className="content-indent prose">
             <p>
-              is the holding company behind Moumoujus, Copycat app, and future
-              ventures.
+              is an experimental holding company. It&apos;s a place for
+              incubating ideas at the intersection of physical and digital
+              products.
             </p>
             <p>
-              It exists to give each idea room to become a focused company,
-              while keeping the long-term thinking in one place.
+              Born from a refusal to stand still, it evolves as new ideas take
+              shape, find purpose, and become real.
             </p>
           </div>
         </section>
@@ -46,9 +63,27 @@ export default function Home() {
         <section className="content-section" id="ventures" aria-labelledby="ventures-title">
           <h2 id="ventures-title">Ventures</h2>
           <dl className="content-indent listing">
-            {ventures.map(([name, type]) => (
+            {ventures.map(({ name, type, status, struck, href }) => (
               <div key={name}>
-                <dt>{name}</dt>
+                <dt>
+                  {href ? (
+                    <a
+                      className="venture-link"
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${name} (opens in a new tab)`}
+                    >
+                      <span className="venture-name">{name}</span>
+                      <span className="external-arrow" aria-hidden="true">↗</span>
+                    </a>
+                  ) : (
+                    <span className={struck ? 'venture-name is-struck' : 'venture-name'}>
+                      {name}
+                    </span>
+                  )}
+                  {status && <span className="status-chip">{status}</span>}
+                </dt>
                 <dd>{type}</dd>
               </div>
             ))}
@@ -77,19 +112,28 @@ export default function Home() {
 
         <section className="content-section" id="roles" aria-labelledby="roles-title">
           <h2 id="roles-title">Open roles</h2>
-          <div className="content-indent prose muted-copy">
+          <div className="role-card">
             <p>
-              Nothing open today. If you make thoughtful work and believe you
-              should be part of something here, introductions are always
-              welcome.
+              We’re seeking a <span>fractional advisor</span> with experience
+              building, operating, or advising skincare brands. The ideal
+              partner brings deep expertise in <span>growth strategy, brand
+              marketing, and B2B partnerships</span>.
             </p>
             <p>
+              This is a <span>remote engagement</span> and is currently open to
+              <span> UK-based candidates only</span>.
+            </p>
+            <p>
+              To express interest:{' '}
               <a href="mailto:hello@netherholt.com">hello (at) netherholt.com</a>
             </p>
           </div>
         </section>
 
-        <p className="content-close">More to come.</p>
+        <footer className="content-close">
+          <span>Made where nobody&apos;s looking.</span>
+          <span>&copy; 2026</span>
+        </footer>
       </div>
 
       <nav className="site-nav" aria-label="Site navigation">
@@ -102,8 +146,15 @@ export default function Home() {
         <div className="nav-row nav-secondary">
           <div className="nav-ventures">
             <a className="current" href="#top">Netherholt</a>
-            <a href="#ventures">Moumoujus</a>
-            <a href="#ventures">Copycat app</a>
+            <a href="https://moumoujus.com" target="_blank" rel="noreferrer">Moumoujus</a>
+            <a
+              className="nav-coming-soon"
+              href="#ventures"
+              data-tooltip="Coming soon"
+              aria-label="Copycat for macOS — coming soon"
+            >
+              Copycat for macOS
+            </a>
           </div>
           <a href="mailto:hello@netherholt.com">Contact</a>
         </div>
