@@ -90,13 +90,13 @@ export default function Home() {
           </dl>
         </section>
 
-        <section className="content-section" id="founder" aria-labelledby="founder-title">
-          <h2 id="founder-title">Founder</h2>
+        <section className="content-section" id="team" aria-labelledby="team-title">
+          <h2 id="team-title">Team</h2>
           <div className="content-indent prose">
             <p>
-              I’m an independent founder working across product, brand and
-              technology—taking ideas from an early thought through to a real
-              launch.
+              We are a small team of independent founders working across
+              product, brand and technology. Taking ideas from an early thought
+              through to a real launch.
             </p>
           </div>
         </section>
@@ -125,7 +125,7 @@ export default function Home() {
             </p>
             <p>
               To express interest:{' '}
-              <a href="mailto:hello@netherholt.com">hello (at) netherholt.com</a>
+              <a href="mailto:jobs@netherholt.com">jobs (at) netherholt.com</a>
             </p>
           </div>
         </section>
@@ -139,7 +139,7 @@ export default function Home() {
       <nav className="site-nav" aria-label="Site navigation">
         <div className="nav-row nav-primary">
           <a href="#ventures">Ventures</a>
-          <a href="#founder">Founder</a>
+          <a href="#team">Team</a>
           <a href="#experience">Experience</a>
           <a href="#roles">Open roles</a>
         </div>
