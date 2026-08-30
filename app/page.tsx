@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { ViewTransition } from 'react';
+
 const ventures = [
   {
     name: 'Moumoujus',
@@ -23,31 +26,36 @@ const experience = [
 
 export default function Home() {
   return (
-    <main id="top">
+    <ViewTransition
+      enter={{ 'page-fade': 'page-fade', default: 'none' }}
+      exit={{ 'page-fade': 'page-fade', default: 'none' }}
+      default="none"
+    >
+      <main id="top">
       <header className="site-header">
         <div
           className="site-logo"
           role="img"
           aria-label="Netherholt"
         >
-          <span className="logo-aura" aria-hidden="true">
-            <span className="logo-aura-fill" />
-          </span>
-          <img
-            className="logo-mark"
-            src="/netherholt-logo.svg"
-            alt=""
-            width={136}
-            height={86}
+          <video
+            className="logo-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
             aria-hidden="true"
-          />
+          >
+            <source src="/netherholt-logo-loop.mp4?v=3" type="video/mp4" />
+          </video>
         </div>
       </header>
 
       <div className="page-content">
         <section className="content-section" id="about" aria-labelledby="about-title">
           <h2 id="about-title">Netherholt</h2>
-          <div className="content-indent prose">
+          <div className="content-indent prose manifesto-intro">
             <p>
               is an experimental holding company. It&apos;s a place for
               incubating ideas at the intersection of physical and digital
@@ -146,19 +154,14 @@ export default function Home() {
         <div className="nav-row nav-secondary">
           <div className="nav-ventures">
             <a className="current" href="#top">Netherholt</a>
-            <a href="https://moumoujus.com" target="_blank" rel="noreferrer">Moumoujus</a>
-            <a
-              className="nav-coming-soon"
-              href="#ventures"
-              data-tooltip="Coming soon"
-              aria-label="Copycat for macOS — coming soon"
-            >
-              Copycat for macOS
-            </a>
+            <Link href="/manifesto" transitionTypes={['page-fade']}>
+              Manifesto
+            </Link>
           </div>
           <a href="mailto:hello@netherholt.com">Contact</a>
         </div>
       </nav>
-    </main>
+      </main>
+    </ViewTransition>
   );
 }

@@ -12,10 +12,10 @@
 }
 
 :root {
-  --black: #010101;
-  --white: #fff;
-  --muted: rgba(1, 1, 1, 0.28);
-  --line: rgba(1, 1, 1, 0.14);
+  --black: #f5f5f3;
+  --white: #000;
+  --muted: rgba(255, 255, 255, 0.34);
+  --line: rgba(255, 255, 255, 0.15);
 }
 
 * {
@@ -25,6 +25,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--white);
+  color-scheme: dark;
 }
 
 body {
@@ -41,6 +42,51 @@ body {
 
 main {
   position: relative;
+}
+
+::view-transition {
+  background: #000;
+  pointer-events: none;
+}
+
+::view-transition-group(.page-fade) {
+  animation-duration: 720ms;
+}
+
+::view-transition-image-pair(.page-fade) {
+  isolation: auto;
+}
+
+::view-transition-old(.page-fade) {
+  z-index: 1;
+  animation: 320ms ease-in both view-fade-out;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(.page-fade) {
+  z-index: 2;
+  animation: 400ms 320ms ease-out both view-fade-in;
+  mix-blend-mode: normal;
+}
+
+@keyframes view-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes view-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 p,
@@ -85,61 +131,16 @@ a:focus-visible {
 .site-logo {
   position: relative;
   display: block;
-  width: 120px;
-  height: 76px;
+  width: 140px;
+  height: 96px;
   cursor: default;
-  isolation: isolate;
 }
 
-.logo-mark {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
+.logo-video {
   display: block;
   width: 100%;
   height: 100%;
-  filter: none;
-  opacity: 1;
   object-fit: contain;
-}
-
-.logo-aura {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  filter: blur(7px) saturate(1.4);
-  opacity: 0.95;
-  pointer-events: none;
-}
-
-.logo-aura-fill {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    #ff3b30,
-    #ff9500,
-    #ffcc00,
-    #34c759,
-    #00c7be,
-    #007aff,
-    #5856d6,
-    #af52de,
-    #ff3b30
-  );
-  background-position: 0 50%;
-  background-size: 300% 100%;
-  -webkit-mask-image: url('/netherholt-logo.svg');
-  mask-image: url('/netherholt-logo.svg');
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  animation: rainbow-flow 4s linear infinite;
-  animation-play-state: running;
-  will-change: background-position;
 }
 
 .page-content {
@@ -149,7 +150,7 @@ a:focus-visible {
   margin: 46svh auto 0;
   padding: 32px 28px 220px;
   border-radius: 24px 24px 0 0;
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(0, 0, 0, 0.62);
   -webkit-backdrop-filter: blur(22px) saturate(1.35);
   backdrop-filter: blur(22px) saturate(1.35);
 }
@@ -165,6 +166,13 @@ a:focus-visible {
   line-height: 1.2;
 }
 
+.content-section h1 {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
 .content-indent {
   width: calc(100% - 32px);
   margin-left: 32px;
@@ -172,6 +180,26 @@ a:focus-visible {
 
 .prose p + p {
   margin-top: 17px;
+}
+
+.manifesto-intro {
+  font-size: 20px;
+  line-height: 1.18;
+}
+
+.manifesto-principles article + article {
+  margin-top: 28px;
+}
+
+.manifesto-principles h3 {
+  margin: 0 0 7px;
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.manifesto-principles p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .listing,
@@ -205,7 +233,7 @@ a:focus-visible {
   right: 0;
   left: 0;
   height: 6px;
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20'%20height='6'%20viewBox='0%200%2020%206'%3E%3Cpath%20d='M0%203%20C3.33%200%206.67%200%2010%203%20S16.67%206%2020%203'%20fill='none'%20stroke='%23010101'%20stroke-width='1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20'%20height='6'%20viewBox='0%200%2020%206'%3E%3Cpath%20d='M0%203%20C3.33%200%206.67%200%2010%203%20S16.67%206%2020%203'%20fill='none'%20stroke='%23f5f5f3'%20stroke-width='1'/%3E%3C/svg%3E");
   background-position: 0 center;
   background-repeat: repeat-x;
   background-size: 20px 6px;
@@ -274,7 +302,7 @@ a:focus-visible {
 
 .role-card span,
 .role-card a {
-  color: var(--white);
+  color: #fff;
 }
 
 .content-close {
@@ -284,12 +312,6 @@ a:focus-visible {
   gap: 24px;
   margin-top: 96px;
   color: var(--muted);
-}
-
-@keyframes rainbow-flow {
-  to {
-    background-position: 300% 50%;
-  }
 }
 
 @keyframes wave-strike {
@@ -304,7 +326,7 @@ a:focus-visible {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(0, 0, 0, 0.92);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
@@ -379,44 +401,6 @@ a:focus-visible {
   color: var(--black);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --black: #f5f5f3;
-    --white: #080808;
-    --muted: rgba(255, 255, 255, 0.34);
-    --line: rgba(255, 255, 255, 0.15);
-  }
-
-  html {
-    color-scheme: dark;
-  }
-
-  .logo-mark {
-    filter: invert(1);
-  }
-
-  .page-content {
-    background: rgba(8, 8, 8, 0.62);
-  }
-
-  .venture-name.is-struck::after {
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20'%20height='6'%20viewBox='0%200%2020%206'%3E%3Cpath%20d='M0%203%20C3.33%200%206.67%200%2010%203%20S16.67%206%2020%203'%20fill='none'%20stroke='%23f5f5f3'%20stroke-width='1'/%3E%3C/svg%3E");
-  }
-
-  .role-card {
-    background: #202020;
-  }
-
-  .role-card span,
-  .role-card a {
-    color: #fff;
-  }
-
-  .site-nav {
-    background: rgba(8, 8, 8, 0.92);
-  }
-}
-
 @media (max-width: 640px) {
   body {
     font-size: 16px;
@@ -430,7 +414,7 @@ a:focus-visible {
 
   .site-logo {
     width: 104px;
-    height: 66px;
+    height: 80px;
   }
 
   .page-content {
@@ -440,9 +424,14 @@ a:focus-visible {
     padding-left: 14px;
   }
 
+  .content-section h1,
   .content-section h2,
   .role-card {
     font-size: 16px;
+  }
+
+  .manifesto-intro {
+    font-size: 21px;
   }
 
   .status-chip {
@@ -480,11 +469,14 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 
-  .logo-aura-fill {
+  .venture-name.is-struck::after {
     animation: none !important;
   }
 
-  .venture-name.is-struck::after {
-    animation: none !important;
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-delay: 0ms;
+    animation-duration: 0.01ms;
   }
 }
