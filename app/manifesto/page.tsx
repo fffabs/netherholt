@@ -8,21 +8,6 @@ export const metadata: Metadata = {
     'The principles behind how Netherholt explores, builds and grows new ventures.',
 };
 
-const principles = [
-  {
-    title: 'Stay curious',
-    copy: 'Follow the questions that keep returning. The unfamiliar is often where the useful work begins.',
-  },
-  {
-    title: 'Make things real',
-    copy: 'Ideas gain meaning through contact with the world. We prototype, test and learn by making.',
-  },
-  {
-    title: 'Think beyond the launch',
-    copy: 'Build with enough care to last, and enough openness to change when the work demands it.',
-  },
-];
-
 export default function Manifesto() {
   return (
     <ViewTransition
@@ -52,61 +37,60 @@ export default function Manifesto() {
           <h1 id="manifesto-title">Manifesto</h1>
           <div className="content-indent prose manifesto-intro">
             <p>
-              We make room for ideas that do not yet have a category.
+              Every venture begins with an idea that won&apos;t leave. We
+              built a whole company on that belief.
             </p>
             <p>
-              Netherholt exists to explore the space between physical and
-              digital products—turning curiosity into useful, distinctive and
-              enduring ventures.
+              We believe in ideas that fit no category, and in following
+              them anyway.
             </p>
-          </div>
-        </section>
-
-        <section className="content-section" id="principles" aria-labelledby="principles-title">
-          <h2 id="principles-title">Principles</h2>
-          <div className="content-indent manifesto-principles">
-            {principles.map(({ title, copy }) => (
-              <article key={title}>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="content-section" id="direction" aria-labelledby="direction-title">
-          <h2 id="direction-title">Direction</h2>
-          <div className="content-indent prose">
             <p>
-              We choose momentum over certainty, substance over noise and
-              long-term value over short-term attention.
+              We believe in making things real, because a prototype proves
+              what a sketch can only claim.
             </p>
-            <p>The form may change. The intent remains.</p>
+            <p>
+              We believe the line between physical and digital is at its
+              best when it blurs.
+            </p>
+            <p>
+              We believe in momentum over certainty. In substance over
+              noise. In decades over quarters.
+            </p>
+            <p>
+              We believe in the details nobody will notice. Somebody always
+              notices.
+            </p>
+            <p>
+              We believe some ideas become ventures, and the rest become the
+              way there.
+            </p>
+            <p>
+              We believe in staying small enough to move fast, and long
+              enough to matter.
+            </p>
+            <p>
+              And we believe the most interesting things are made where
+              nobody&apos;s looking.
+            </p>
           </div>
         </section>
 
         <footer className="content-close">
-          <span>Made where nobody&apos;s looking.</span>
-          <span>&copy; 2026</span>
+          <nav className="footer-nav" aria-label="Site navigation">
+            <div className="footer-pages">
+              <Link href="/" transitionTypes={['page-fade']}>
+                Netherholt
+              </Link>
+              <span className="current">Manifesto</span>
+            </div>
+            <a href="mailto:hello@netherholt.com">Contact</a>
+          </nav>
+          <div className="content-close-meta">
+            <span>Made where nobody&apos;s looking.</span>
+            <span>&copy; 2026</span>
+          </div>
         </footer>
       </div>
-
-      <nav className="site-nav" aria-label="Site navigation">
-        <div className="nav-row nav-primary">
-          <a href="#manifesto">Manifesto</a>
-          <a href="#principles">Principles</a>
-          <a href="#direction">Direction</a>
-        </div>
-        <div className="nav-row nav-secondary">
-          <div className="nav-ventures">
-            <Link href="/" transitionTypes={['page-fade']}>
-              Netherholt
-            </Link>
-            <a className="current" href="#top">Manifesto</a>
-          </div>
-          <a href="mailto:hello@netherholt.com">Contact</a>
-        </div>
-      </nav>
       </main>
     </ViewTransition>
   );

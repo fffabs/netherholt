@@ -4,7 +4,7 @@ import { ViewTransition } from 'react';
 const ventures = [
   {
     name: 'Moumoujus',
-    type: 'Independent venture',
+    type: 'Skincare',
     href: 'https://moumoujus.com',
   },
   {
@@ -16,12 +16,12 @@ const ventures = [
   { name: 'Future ventures', type: 'In development' },
 ];
 
-const experience = [
-  'Venture building',
-  'Product strategy',
+const expertise = [
+  'Venture building, zero to launch',
+  'Product strategy and design',
   'Brand and identity',
-  'Digital products',
-  'Go-to-market',
+  'Physical and digital product development',
+  'Growth and go-to-market',
 ];
 
 export default function Home() {
@@ -57,13 +57,12 @@ export default function Home() {
           <h2 id="about-title">Netherholt</h2>
           <div className="content-indent prose manifesto-intro">
             <p>
-              is an experimental holding company. It&apos;s a place for
-              incubating ideas at the intersection of physical and digital
-              products.
+              is an experimental holding company. We build products that blur
+              the line between physical and digital.
             </p>
             <p>
-              Born from a refusal to stand still, it evolves as new ideas take
-              shape, find purpose, and become real.
+              Some ideas won&apos;t leave. When one keeps returning, we follow
+              it until it&apos;s real.
             </p>
           </div>
         </section>
@@ -102,17 +101,17 @@ export default function Home() {
           <h2 id="team-title">Team</h2>
           <div className="content-indent prose">
             <p>
-              We are a small team of independent founders working across
-              product, brand and technology. Taking ideas from an early thought
-              through to a real launch.
+              We&apos;re a small team of independent founders across product,
+              brand and technology, taking ideas from first thought to real
+              launch.
             </p>
           </div>
         </section>
 
-        <section className="content-section" id="experience" aria-labelledby="experience-title">
-          <h2 id="experience-title">Experience</h2>
+        <section className="content-section" id="expertise" aria-labelledby="expertise-title">
+          <h2 id="expertise-title">Expertise</h2>
           <ul className="content-indent simple-list">
-            {experience.map((item) => (
+            {expertise.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
@@ -122,45 +121,38 @@ export default function Home() {
           <h2 id="roles-title">Open roles</h2>
           <div className="role-card">
             <p>
-              We’re seeking a <span>fractional advisor</span> with experience
-              building, operating, or advising skincare brands. The ideal
-              partner brings deep expertise in <span>growth strategy, brand
-              marketing, and B2B partnerships</span>.
+              We’re looking for a <span>fractional advisor</span> who has
+              built, operated, or advised skincare brands. You know{' '}
+              <span>growth strategy, brand marketing, and B2B partnerships</span>{' '}
+              firsthand.
             </p>
             <p>
-              This is a <span>remote engagement</span> and is currently open to
-              <span> UK-based candidates only</span>.
+              <span>Remote</span>, currently open to{' '}
+              <span>UK-based candidates only</span>.
             </p>
             <p>
-              To express interest:{' '}
-              <a href="mailto:jobs@netherholt.com">jobs (at) netherholt.com</a>
+              Sounds like you?{' '}
+              <a href="mailto:jobs@netherholt.com">jobs@netherholt.com</a>
             </p>
           </div>
         </section>
 
         <footer className="content-close">
-          <span>Made where nobody&apos;s looking.</span>
-          <span>&copy; 2026</span>
+          <nav className="footer-nav" aria-label="Site navigation">
+            <div className="footer-pages">
+              <span className="current">Netherholt</span>
+              <Link href="/manifesto" transitionTypes={['page-fade']}>
+                Manifesto
+              </Link>
+            </div>
+            <a href="mailto:hello@netherholt.com">Contact</a>
+          </nav>
+          <div className="content-close-meta">
+            <span>Made where nobody&apos;s looking.</span>
+            <span>&copy; 2026</span>
+          </div>
         </footer>
       </div>
-
-      <nav className="site-nav" aria-label="Site navigation">
-        <div className="nav-row nav-primary">
-          <a href="#ventures">Ventures</a>
-          <a href="#team">Team</a>
-          <a href="#experience">Experience</a>
-          <a href="#roles">Open roles</a>
-        </div>
-        <div className="nav-row nav-secondary">
-          <div className="nav-ventures">
-            <a className="current" href="#top">Netherholt</a>
-            <Link href="/manifesto" transitionTypes={['page-fade']}>
-              Manifesto
-            </Link>
-          </div>
-          <a href="mailto:hello@netherholt.com">Contact</a>
-        </div>
-      </nav>
       </main>
     </ViewTransition>
   );

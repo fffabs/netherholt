@@ -3,17 +3,17 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://netherholt.com'),
-  title: 'Netherholt — Independent Holding Company',
+  title: 'Netherholt — Experimental Holding Company',
   description:
-    'Netherholt is the independent holding company behind Moumoujus, Copycat for macOS, and future ventures.',
+    'Netherholt is the experimental holding company behind Moumoujus, Copycat for macOS, and future ventures.',
   icons: {
     icon: [{ url: '/netherholt-logo.svg', type: 'image/svg+xml' }],
     shortcut: '/netherholt-logo.svg',
   },
   openGraph: {
-    title: 'Netherholt — Independent Holding Company',
+    title: 'Netherholt — Experimental Holding Company',
     description:
-      'A home for considered companies—Moumoujus, Copycat for macOS, and whatever comes next.',
+      'Building ventures where physical and digital products meet.',
     url: 'https://netherholt.com',
     siteName: 'Netherholt',
     type: 'website',
@@ -22,15 +22,15 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1730,
         height: 909,
-        alt: 'Netherholt — Independent holding company',
+        alt: 'Netherholt — Experimental holding company',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Netherholt — Independent Holding Company',
+    title: 'Netherholt — Experimental Holding Company',
     description:
-      'A home for considered companies—Moumoujus, Copycat for macOS, and whatever comes next.',
+      'Building ventures where physical and digital products meet.',
     images: ['/og.png'],
   },
 };
