@@ -114,7 +114,9 @@ export default function Home() {
           <p>Remote, currently open to UK-based candidates only.</p>
           <p>
             Sounds like you?{' '}
-            <a href="mailto:jobs@netherholt.com">jobs@netherholt.com</a>
+            <a className="pen-circle" href="mailto:jobs@netherholt.com">
+              jobs@netherholt.com
+            </a>
           </p>
         </section>
 

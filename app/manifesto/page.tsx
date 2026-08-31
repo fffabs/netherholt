@@ -30,45 +30,47 @@ export default function Manifesto() {
         </video>
       </div>
 
-      <div className="page-content">
+      <div className="page-content manifesto-content">
         <section className="content-block" aria-labelledby="manifesto-title">
           <h1 id="manifesto-title">Manifesto</h1>
           <div className="prose">
             <p>
-              Every venture begins with an idea that won&apos;t leave. We
+              Every venture begins with an idea that{' '}
+              <span className="wave-underline">won&apos;t leave</span>. We
               built a whole company on that belief.
             </p>
             <p>
-              We believe in ideas that fit no category, and in following
-              them anyway.
+              <span className="believe">We believe</span> in ideas that fit
+              no category, and in following them anyway.
             </p>
             <p>
-              We believe in making things real, because a prototype proves
-              what a sketch can only claim.
+              <span className="believe">We believe</span> in making things
+              real, because a prototype proves what a sketch can only claim.
             </p>
             <p>
-              We believe the line between physical and digital is at its
-              best when it blurs.
+              <span className="believe">We believe</span> the line between
+              physical and digital is at its best when it blurs.
             </p>
             <p>
-              We believe in momentum over certainty. In substance over
-              noise. In decades over quarters.
+              <span className="believe">We believe</span> in momentum over
+              certainty. In substance over noise. In decades over quarters.
             </p>
             <p>
-              We believe in the details nobody will notice. Somebody always
-              notices.
+              <span className="believe">We believe</span> in the details
+              nobody will notice. Somebody always notices.
             </p>
             <p>
-              We believe some ideas become ventures, and the rest become the
-              way there.
+              <span className="believe">We believe</span> some ideas become
+              ventures, and the rest become the way there.
             </p>
             <p>
-              We believe in staying small enough to move fast, and long
-              enough to matter.
+              <span className="believe">We believe</span> in staying small
+              enough to move fast, and long enough to matter.
             </p>
-            <p>
-              And we believe the most interesting things are made where
-              nobody&apos;s looking.
+            <p className="manifesto-close">
+              <span className="believe">And we believe</span> the most
+              interesting things are made{' '}
+              <span className="pen-circle">where nobody&apos;s looking</span>.
             </p>
           </div>
         </section>

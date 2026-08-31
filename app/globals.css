@@ -145,6 +145,10 @@ a:focus-visible {
   padding: 24px 24px 160px;
 }
 
+.manifesto-content {
+  max-width: 720px;
+}
+
 .content-block + .content-block {
   margin-top: 1.15em;
 }
@@ -158,6 +162,19 @@ a:focus-visible {
 
 .prose p + p {
   margin-top: 1.15em;
+}
+
+.manifesto-close {
+  font-size: 1.5em;
+  line-height: 1.15;
+}
+
+.prose p + .manifesto-close {
+  margin-top: 1.4em;
+}
+
+.believe {
+  color: var(--muted);
 }
 
 .venture-list,
@@ -197,6 +214,20 @@ a:focus-visible {
 
 .venture-link:hover .external-arrow {
   transform: translate(2px, -4px);
+}
+
+.pen-circle {
+  position: relative;
+  white-space: nowrap;
+}
+
+.pen-circle::after {
+  position: absolute;
+  inset: -0.22em -0.5em -0.28em;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2070'%20preserveAspectRatio='none'%3E%3Cpath%20d='M120%208%20C190%206%20232%2018%20232%2034%20C232%2052%20180%2064%20118%2064%20C55%2064%208%2052%208%2035%20C8%2018%2060%207%20132%2010'%20fill='none'%20stroke='%23f5f5f3'%20stroke-width='2'%20vector-effect='non-scaling-stroke'%20stroke-linecap='round'/%3E%3C/svg%3E")
+    center / 100% 100% no-repeat;
+  content: '';
+  pointer-events: none;
 }
 
 .wave-underline {
