@@ -31,128 +31,106 @@ export default function Home() {
       exit={{ 'page-fade': 'page-fade', default: 'none' }}
       default="none"
     >
-      <main id="top">
-      <header className="site-header">
-        <div
-          className="site-logo"
-          role="img"
-          aria-label="Netherholt"
+      <main>
+      <div className="site-logo" role="img" aria-label="Netherholt">
+        <video
+          className="logo-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden="true"
         >
-          <video
-            className="logo-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-          >
-            <source src="/netherholt-logo-loop.mp4?v=3" type="video/mp4" />
-          </video>
-        </div>
-      </header>
+          <source src="/netherholt-logo-loop.mp4?v=3" type="video/mp4" />
+        </video>
+      </div>
 
       <div className="page-content">
-        <section className="content-section" id="about" aria-labelledby="about-title">
-          <h2 id="about-title">Netherholt</h2>
-          <div className="content-indent prose manifesto-intro">
-            <p>
-              is an experimental holding company. We build products that blur
-              the line between physical and digital.
-            </p>
-            <p>
-              Some ideas won&apos;t leave. When one keeps returning, we follow
-              it until it&apos;s real.
-            </p>
-          </div>
+        <h1 className="visually-hidden">Netherholt</h1>
+
+        <section className="content-block" aria-label="About">
+          <p>
+            <span className="wave-underline">Netherholt</span> is an
+            experimental holding company. We build products
+            that blur the line between physical and digital. Some ideas
+            won&apos;t leave. When one keeps returning, we follow it until
+            it&apos;s real.
+          </p>
         </section>
 
-        <section className="content-section" id="ventures" aria-labelledby="ventures-title">
-          <h2 id="ventures-title">Ventures</h2>
-          <dl className="content-indent listing">
+        <section className="content-block" aria-label="Team">
+          <p>
+            We&apos;re a small team of independent founders across product,
+            brand and technology, taking ideas from first thought to real
+            launch.
+          </p>
+        </section>
+
+        <section className="content-block" aria-labelledby="ventures-title">
+          <h2 id="ventures-title">Our Ventures</h2>
+          <ul className="venture-list">
             {ventures.map(({ name, type, status, struck, href }) => (
-              <div key={name}>
-                <dt>
-                  {href ? (
-                    <a
-                      className="venture-link"
-                      href={href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${name} (opens in a new tab)`}
-                    >
-                      <span className="venture-name">{name}</span>
-                      <span className="external-arrow" aria-hidden="true">{'↗︎'}</span>
-                    </a>
-                  ) : (
-                    <span className={struck ? 'venture-name is-struck' : 'venture-name'}>
-                      {name}
-                    </span>
-                  )}
-                  {status && <span className="status-chip">{status}</span>}
-                </dt>
-                <dd>{type}</dd>
-              </div>
+              <li key={name}>
+                {href ? (
+                  <a
+                    className="venture-link"
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${name} (opens in a new tab)`}
+                  >
+                    <span className="venture-name">{name}</span>
+                    <span className="external-arrow" aria-hidden="true">{'↗︎'}</span>
+                  </a>
+                ) : (
+                  <span className={struck ? 'venture-name is-struck' : 'venture-name'}>
+                    {name}
+                  </span>
+                )}
+                {status && <span className="status-chip">{status}</span>}
+                <span className="venture-type">{type}</span>
+              </li>
             ))}
-          </dl>
+          </ul>
         </section>
 
-        <section className="content-section" id="team" aria-labelledby="team-title">
-          <h2 id="team-title">Team</h2>
-          <div className="content-indent prose">
-            <p>
-              We&apos;re a small team of independent founders across product,
-              brand and technology, taking ideas from first thought to real
-              launch.
-            </p>
-          </div>
-        </section>
-
-        <section className="content-section" id="expertise" aria-labelledby="expertise-title">
-          <h2 id="expertise-title">Expertise</h2>
-          <ul className="content-indent simple-list">
+        <section className="content-block" aria-labelledby="expertise-title">
+          <h2 id="expertise-title">Our Expertise</h2>
+          <ul className="expertise-list">
             {expertise.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </section>
 
-        <section className="content-section" id="roles" aria-labelledby="roles-title">
-          <h2 id="roles-title">Open roles</h2>
-          <div className="role-card">
-            <p>
-              We’re looking for a <span>fractional advisor</span> who has
-              built, operated, or advised skincare brands. You know{' '}
-              <span>growth strategy, brand marketing, and B2B partnerships</span>{' '}
-              firsthand.
-            </p>
-            <p>
-              <span>Remote</span>, currently open to{' '}
-              <span>UK-based candidates only</span>.
-            </p>
-            <p>
-              Sounds like you?{' '}
-              <a href="mailto:jobs@netherholt.com">jobs@netherholt.com</a>
-            </p>
-          </div>
+        <section className="content-block" aria-labelledby="roles-title">
+          <h2 id="roles-title">Open Roles</h2>
+          <p>
+            We’re looking for a fractional advisor who has built, operated, or
+            advised skincare brands. You know growth strategy, brand
+            marketing, and B2B partnerships firsthand.
+          </p>
+          <p>Remote, currently open to UK-based candidates only.</p>
+          <p>
+            Sounds like you?{' '}
+            <a href="mailto:jobs@netherholt.com">jobs@netherholt.com</a>
+          </p>
         </section>
 
         <footer className="content-close">
-          <nav className="footer-nav" aria-label="Site navigation">
-            <div className="footer-pages">
-              <span className="current">Netherholt</span>
-              <Link href="/manifesto" transitionTypes={['page-fade']}>
-                Manifesto
-              </Link>
-            </div>
-            <a href="mailto:hello@netherholt.com">Contact</a>
-          </nav>
-          <div className="content-close-meta">
-            <span>Made where nobody&apos;s looking.</span>
-            <span>&copy; 2026</span>
-          </div>
+          <span>Made where nobody&apos;s looking.</span>
+          <span>&copy; 2026</span>
         </footer>
       </div>
+
+      <nav className="site-nav" aria-label="Site navigation">
+        <span className="current">Netherholt</span>
+        <Link href="/manifesto" transitionTypes={['page-fade']}>
+          Manifesto
+        </Link>
+        <a className="nav-contact" href="mailto:hello@netherholt.com">Contact</a>
+      </nav>
       </main>
     </ViewTransition>
   );

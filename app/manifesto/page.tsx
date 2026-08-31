@@ -15,27 +15,25 @@ export default function Manifesto() {
       exit={{ 'page-fade': 'page-fade', default: 'none' }}
       default="none"
     >
-      <main id="top">
-      <header className="site-header">
-        <div className="site-logo" role="img" aria-label="Netherholt">
-          <video
-            className="logo-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-          >
-            <source src="/netherholt-logo-loop.mp4?v=3" type="video/mp4" />
-          </video>
-        </div>
-      </header>
+      <main>
+      <div className="site-logo" role="img" aria-label="Netherholt">
+        <video
+          className="logo-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        >
+          <source src="/netherholt-logo-loop.mp4?v=3" type="video/mp4" />
+        </video>
+      </div>
 
-      <div className="page-content manifesto-content">
-        <section className="content-section" id="manifesto" aria-labelledby="manifesto-title">
+      <div className="page-content">
+        <section className="content-block" aria-labelledby="manifesto-title">
           <h1 id="manifesto-title">Manifesto</h1>
-          <div className="content-indent prose manifesto-intro">
+          <div className="prose">
             <p>
               Every venture begins with an idea that won&apos;t leave. We
               built a whole company on that belief.
@@ -76,21 +74,18 @@ export default function Manifesto() {
         </section>
 
         <footer className="content-close">
-          <nav className="footer-nav" aria-label="Site navigation">
-            <div className="footer-pages">
-              <Link href="/" transitionTypes={['page-fade']}>
-                Netherholt
-              </Link>
-              <span className="current">Manifesto</span>
-            </div>
-            <a href="mailto:hello@netherholt.com">Contact</a>
-          </nav>
-          <div className="content-close-meta">
-            <span>Made where nobody&apos;s looking.</span>
-            <span>&copy; 2026</span>
-          </div>
+          <span>Made where nobody&apos;s looking.</span>
+          <span>&copy; 2026</span>
         </footer>
       </div>
+
+      <nav className="site-nav" aria-label="Site navigation">
+        <Link href="/" transitionTypes={['page-fade']}>
+          Netherholt
+        </Link>
+        <span className="current">Manifesto</span>
+        <a className="nav-contact" href="mailto:hello@netherholt.com">Contact</a>
+      </nav>
       </main>
     </ViewTransition>
   );
