@@ -82,6 +82,14 @@ export default function Home() {
                   >
                     <span className="venture-name">{name}</span>
                     <span className="external-arrow" aria-hidden="true">{'↗︎'}</span>
+                    {name === 'Moumoujus' && (
+                      <span className="venture-peek" aria-hidden="true">
+                        <i />
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                    )}
                   </a>
                 ) : (
                   <span className={struck ? 'venture-name is-struck' : 'venture-name'}>
