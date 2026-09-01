@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import { ViewTransition } from 'react';
+import { Arrow } from './arrow';
+import { TaglineRing } from './tagline-ring';
 
 const ventures = [
   {
     name: 'Moumoujus',
     type: 'Skincare',
+    status: 'Live',
     href: 'https://moumoujus.com',
   },
   {
@@ -13,7 +16,11 @@ const ventures = [
     status: 'Coming soon',
     struck: true,
   },
-  { name: 'Future ventures', type: 'In development' },
+  {
+    name: 'Future ventures',
+    type: 'Physical and digital',
+    status: 'In development',
+  },
 ];
 
 const expertise = [
@@ -32,46 +39,52 @@ export default function Home() {
       default="none"
     >
       <main>
-      <div className="site-logo" role="img" aria-label="Netherholt">
-        <video
-          className="logo-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        >
-          <source src="/netherholt-logo-loop.mp4?v=3" type="video/mp4" />
-        </video>
-      </div>
+      <header className="site-header">
+        <div className="grid">
+          <h1 className="c6">Netherholt</h1>
+          <span className="c5 label hide-mobile">Experimental holding company</span>
+          <Link className="c3" href="/manifesto" transitionTypes={['page-fade']}>
+            Manifesto
+            <Arrow />
+          </Link>
+          <a className="c2 right" href="mailto:hello@netherholt.com">Contact</a>
+        </div>
+      </header>
 
-      <div className="page-content">
-        <h1 className="visually-hidden">Netherholt</h1>
-
-        <section className="content-block" aria-label="About">
-          <p>
-            <span className="wave-underline">Netherholt</span> is an
-            experimental holding company. We build products
-            that blur the line between physical and digital. Some ideas
-            won&apos;t leave. When one keeps returning, we follow it until
-            it&apos;s real.
-          </p>
+      <div className="page">
+        <section className="block block-first" aria-label="About">
+          <div className="grid">
+            <div className="c9 copy">
+              <p>
+                Netherholt is an experimental holding company. We build
+                products that blur the line between physical and digital.
+                Some ideas won&apos;t leave. When one keeps returning, we
+                follow it until it&apos;s real.
+              </p>
+              <p>
+                We&apos;re a small team of independent founders across
+                product, brand and technology, taking ideas from first
+                thought to real launch.
+              </p>
+            </div>
+            <div className="c7 hero-logo" role="img" aria-label="Netherholt">
+              <video autoPlay loop muted playsInline preload="auto" aria-hidden="true">
+                <source src="/netherholt-logo-loop.mp4?v=3" type="video/mp4" />
+              </video>
+            </div>
+          </div>
         </section>
 
-        <section className="content-block" aria-label="Team">
-          <p>
-            We&apos;re a small team of independent founders across product,
-            brand and technology, taking ideas from first thought to real
-            launch.
-          </p>
-        </section>
-
-        <section className="content-block" aria-labelledby="ventures-title">
-          <h2 id="ventures-title">Our Ventures</h2>
-          <ul className="venture-list">
-            {ventures.map(({ name, type, status, struck, href }) => (
-              <li key={name}>
+        <section className="block" aria-labelledby="ventures-title">
+          <h2 id="ventures-title" className="block-title">Ventures</h2>
+          <div className="grid row head">
+            <span className="c6">Venture</span>
+            <span className="c5">Type</span>
+            <span className="c5">Status</span>
+          </div>
+          {ventures.map(({ name, type, status, struck, href }) => (
+            <div className="grid row" key={name}>
+              <span className="c6 name m-full">
                 {href ? (
                   <a
                     className="venture-link"
@@ -81,7 +94,9 @@ export default function Home() {
                     aria-label={`${name} (opens in a new tab)`}
                   >
                     <span className="venture-name">{name}</span>
-                    <span className="external-arrow" aria-hidden="true">{'↗︎'}</span>
+                    <span className="external-arrow" aria-hidden="true">
+                      <Arrow external />
+                    </span>
                     {name === 'Moumoujus' && (
                       <span className="venture-peek" aria-hidden="true">
                         <i />
@@ -96,51 +111,58 @@ export default function Home() {
                     {name}
                   </span>
                 )}
-                {status && <span className="status-chip">{status}</span>}
-                <span className="venture-type">{type}</span>
-              </li>
-            ))}
-          </ul>
+              </span>
+              <span className="c5 cell label m-half">{type}</span>
+              <span className="c5 cell label m-half">{status}</span>
+            </div>
+          ))}
         </section>
 
-        <section className="content-block" aria-labelledby="expertise-title">
-          <h2 id="expertise-title">Our Expertise</h2>
-          <ul className="expertise-list">
-            {expertise.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+        <section className="block" aria-labelledby="expertise-title">
+          <h2 id="expertise-title" className="block-title">Expertise</h2>
+          {expertise.map((item, index) => (
+            <div className="grid row" key={item}>
+              <span className="c1 label">{String(index + 1).padStart(2, '0')}</span>
+              <span className="c15 cell">{item}</span>
+            </div>
+          ))}
         </section>
 
-        <section className="content-block" aria-labelledby="roles-title">
-          <h2 id="roles-title">Open Roles</h2>
-          <p>
-            We’re looking for a fractional advisor who has built, operated, or
-            advised skincare brands. You know growth strategy, brand
-            marketing, and B2B partnerships firsthand.
-          </p>
-          <p>Remote, currently open to UK-based candidates only.</p>
-          <p>
-            Sounds like you?{' '}
-            <a className="pen-circle" href="mailto:jobs@netherholt.com">
-              jobs@netherholt.com
-            </a>
-          </p>
+        <section className="block" aria-labelledby="roles-title">
+          <h2 id="roles-title" className="block-title">Open roles</h2>
+          <div className="grid row head">
+            <span className="c6">Role</span>
+            <span className="c5">Location</span>
+            <span className="c5">Contact</span>
+          </div>
+          <div className="grid row">
+            <span className="c6 name m-full">Fractional advisor, skincare</span>
+            <span className="c5 cell label m-half">Remote, UK-based only</span>
+            <span className="c5 m-half">
+              <a className="pen-circle" href="mailto:jobs@netherholt.com">
+                jobs@netherholt.com
+              </a>
+            </span>
+          </div>
+          <div className="grid role-copy">
+            <div className="c9 copy">
+              <p>
+                We’re looking for a fractional advisor who has built,
+                operated, or advised skincare brands. You know growth
+                strategy, brand marketing, and B2B partnerships firsthand.
+              </p>
+            </div>
+          </div>
         </section>
-
-        <footer className="content-close">
-          <span>Made where nobody&apos;s looking.</span>
-          <span>&copy; 2026</span>
-        </footer>
       </div>
 
-      <nav className="site-nav" aria-label="Site navigation">
-        <span className="current">Netherholt</span>
-        <Link href="/manifesto" transitionTypes={['page-fade']}>
-          Manifesto
-        </Link>
-        <a className="nav-contact" href="mailto:hello@netherholt.com">Contact</a>
-      </nav>
+      <footer className="site-footer" id="footer">
+        <TaglineRing />
+        <div className="grid footer-meta">
+          <span className="c6">Made where nobody&apos;s looking.</span>
+          <span className="c10 right">&copy; 2026</span>
+        </div>
+      </footer>
       </main>
     </ViewTransition>
   );
