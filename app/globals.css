@@ -3,9 +3,9 @@
 @import 'shadcn/tailwind.css';
 
 @font-face {
-  font-family: 'Neue Haas Unica';
-  src: url('/fonts/NeueHaasUnica-Regular.woff2') format('woff2'),
-    url('/fonts/NeueHaasUnica-Regular.woff') format('woff');
+  font-family: 'Univers Next Pro';
+  src: url('/fonts/UniversNextPro-Regular.woff2') format('woff2'),
+    url('/fonts/UniversNextPro-Regular.woff') format('woff');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -32,7 +32,7 @@ body {
   margin: 0;
   background: var(--white);
   color: var(--black);
-  font-family: 'Neue Haas Unica', Arial, sans-serif;
+  font-family: 'Univers Next Pro', Arial, sans-serif;
   font-size: clamp(20px, 2.6vw, 34px);
   font-weight: 400;
   line-height: 1.22;
